@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: add-ingress
+  labels:
+    app: get
+spec:
+  ingressClassName: azure-application-gateway
+  rules:
+  - host: add.asishkashyap.online
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name:  addtask-svc
+            port:
+              number: 80
+
